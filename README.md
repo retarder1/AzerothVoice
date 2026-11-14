@@ -1,4 +1,4 @@
-<p align="center"><img src="assets/azerothvoice.png" width="128" alt="AzerothVoice"></p>
+<p align="center"><img src="assets/azerothvoice-512.png" width="160" alt="AzerothVoice"></p>
 
 # AzerothVoice
 
@@ -19,13 +19,13 @@ Windows may warn you on the first start ("Windows protected your PC") because th
 
 1. **Run `azeroth-voice.exe`.** The program checks for updates by itself and installs or updates the WoW addon automatically. If WoW is not found: **"Choose WoW folder …"**.
 2. **Load the invitation:** you get the file `azeroth-voice-server.ini` from the host. Put it next to the exe or click **"Load invitation …"**.
-3. **"1. Install Mumble".** The program downloads the official Mumble installer, checks its signature and unpacks a **private copy** (no installation, no Windows prompt). **All game plugins are deleted** from this copy (including Mumble's own WoW plugin, which reads game memory), and so is the **overlay**. Only the AzerothVoice plugin is added. A normally installed Mumble is not used and must be closed while you play.
-4. **"2. Set up Mumble".** Turns on positional audio and push-to-talk and turns off Mumble updates.
-5. **"3. Connect".** Your character name is used as your name.
+3. **Mumble is set up automatically.** The program downloads the official Mumble installer, checks its signature and unpacks a **private copy** (no installation, no Windows prompt). **All game plugins are deleted** from this copy (including Mumble's own WoW plugin, which reads game memory), and so is the **overlay**. Only the AzerothVoice plugin is added. A normally installed Mumble is not used and must be closed while you play.
+4. Nothing else to click: positional audio, push-to-talk and the server certificate are set up automatically, and Mumble updates are turned off.
+5. **Log in to WoW.** As soon as a character is in the game, AzerothVoice connects automatically under that character's name. Switch characters and it reconnects with the new name; log out and it disconnects.
 6. Play WoW in **"Windowed (Fullscreen)"** mode. The **Live** section of the program shows whether everything arrives.
 7. **Bind the talk key** in WoW: Options → Keybindings → AddOns → AzerothVoice → "Talk (push-to-talk)". You only transmit while you hold it and WoW is in the foreground.
 
-You don't need the Mumble window at all: everything is set in AzerothVoice.
+Mumble runs hidden in the system tray, you never need its window.
 
 ## In the game
 
@@ -36,12 +36,14 @@ You don't need the Mumble window at all: everything is set in AzerothVoice.
 
 ## Microphone & sound
 
-All in the AzerothVoice window, section **"Microphone & sound"**:
+**In the game:** Options → AddOns → **AzerothVoice**, or `/av options`:
 
-- **Microphone** and **playback** device, **noise suppression** (RNNoise recommended). "Apply" restarts Mumble and reconnects.
-- **Level** meter, **microphone volume** and **overall volume** (take effect immediately).
-- **Test microphone:** records 3 seconds and plays them back to you (needs a connected Mumble).
+- **Microphone volume**, **overall volume** and **noise suppression** (RNNoise recommended).
 - **Music protection:** anyone who transmits non-stop for longer than the set time (default 30 s) is turned down.
+- **Test microphone:** records 3 seconds and plays them back to you.
+- Also as commands: `/av mic 120`, `/av vol 80`, `/av music 30` or `/av music off`, `/av noise rnn`, `/av test`.
+
+Only the **microphone and playback device** are chosen in the AzerothVoice window (default: the Windows default device). The window also shows a level meter.
 
 ## Safety
 
@@ -60,6 +62,6 @@ If something is wrong, talking is blocked and Mumble is closed. The status is sh
 | "WoW window not found" | Start WoW, mode "Windowed (Fullscreen)" |
 | Voices come from the wrong side | In the program under "Advanced" → "Mirror left/right" |
 | Everyone is always equally loud | Close Mumble and repeat "2. Set up Mumble" |
-| "Another Mumble is running" | Close the regular Mumble (also in the system tray at the bottom right), then "3. Connect" |
-| Guard: "plugin does not answer" | Restart Mumble with "3. Connect" |
+| "Another Mumble is running" | Close the regular Mumble (also in the system tray at the bottom right), then restart AzerothVoice |
+| Guard: "plugin does not answer" | Use "Reconnect" in AzerothVoice |
 | No level / microphone test silent | Is Mumble connected? Right microphone selected? |
